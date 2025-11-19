@@ -157,16 +157,9 @@ export default function GraphExplorer({ apiBase = "http://localhost:8000" }) {
             </div>
           </div>
 
-          <div className="legend">
-            <span className="dot green" /> Start
-            <span className="dot red" /> End
-            <span className="dot blue" /> Center
-          </div>
           {message && <div className="message">{message}</div>}
         </div>
       </div>
-
-      <div className="explorer-canvas" ref={ref} />
     </div>
   );
 }
