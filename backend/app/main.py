@@ -67,16 +67,3 @@ def neighborhood(account: dict):
         nodes = [dict(n) for n in record["nodes"]] if record else []
         return {"nodes": nodes}
 
-
-@app.post("/mutuals")
-def mutuals(account: dict):
-    username = account.get("username")
-    query = (
-        "MATCH (a:User {username:$username})-[:FOLLOWS]->(m)<-[:FOLLOWS]-(a) "
-        "RETURN collect(m) as mutuals"
-    )
-    with driver.session() as session:
-        res = session.run(query, username=username)
-        record = res.single()
-        mutuals = [dict(n) for n in record["mutuals"]] if record else []
-        return {"mutuals": mutuals}
