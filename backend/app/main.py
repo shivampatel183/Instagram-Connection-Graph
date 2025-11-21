@@ -41,7 +41,14 @@ def shortest_path(pair: AccountPair):
         "MATCH (a:User {username:$a}), (b:User {username:$b}), "
         "p = shortestPath((a)-[*..6]-(b)) RETURN nodes(p) as nodes, relationships(p) as rels"
     )
-    with driver.session() as session:ships": rels}
+    with driver.session() as session:
+        res = session.run(query, a=pair.a, b=pair.b)
+        record = res.single()
+        if not record:
+            raise HTTPException(status_code=404, detail="No path found")
+        nodes = [dict(n) for n in record["nodes"]]
+        rels = [dict(r) for r in record["rels"]]
+        return {"nodes": nodes, "relationships": rels}
 
 
 @app.post("/neighborhood")
