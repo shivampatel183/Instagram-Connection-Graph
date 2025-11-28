@@ -14,12 +14,7 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 
-def ensure_user(tx, username, **props):
-    tx.run(
-        "MERGE (u:User {username:$username}) SET u += $props",
-        username=username,
-        props=props,
-    )
+
 
 
 def ensure_follow(tx, a, b):
