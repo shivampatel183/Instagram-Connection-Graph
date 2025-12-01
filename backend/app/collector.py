@@ -17,6 +17,13 @@ driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 
 
+def ensure_follow(tx, a, b):
+    tx.run(
+        "MATCH (a:User {username:$a}), (b:User {username:$b}) MERGE (a)-[:FOLLOWS]->(b)",
+        a=a,
+        b=b,
+    )
+
 
 def fetch_and_store(profile_name, max_followers=None):
     L = instaloader.Instaloader()
