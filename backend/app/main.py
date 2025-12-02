@@ -30,6 +30,9 @@ class AccountPair(BaseModel):
     b: str
 
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 
 @app.post("/shortest_path")
