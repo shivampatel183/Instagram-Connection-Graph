@@ -155,7 +155,6 @@ export default function GraphExplorer({ apiBase = "http://localhost:8000" }) {
                 Find
               </button>
             </div>
-          </div>
 
           {message && <div className="message">{message}</div>}
         </div>
