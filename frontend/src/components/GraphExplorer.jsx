@@ -132,9 +132,7 @@ export default function GraphExplorer({ apiBase = "http://localhost:8000" }) {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="username"
               />
-              <button onClick={loadNeighborhood} disabled={loading}>
-                Load
-              </button>
+              
             </div>
           </div>
 
