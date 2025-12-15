@@ -127,11 +127,6 @@ export default function GraphExplorer({ apiBase = "http://localhost:8000" }) {
           <div className="control-block">
             <label>Neighborhood</label>
             <div className="row">
-              <input
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="username"
-              />
               <button onClick={loadNeighborhood} disabled={loading}>
                 Load
               </button>
