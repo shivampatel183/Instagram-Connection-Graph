@@ -137,29 +137,3 @@ export default function GraphExplorer({ apiBase = "http://localhost:8000" }) {
               </button>
             </div>
           </div>
-
-          <div className="control-block">
-            <label>Shortest Path</label>
-            <div className="row">
-              <input
-                value={userA}
-                onChange={(e) => setUserA(e.target.value)}
-                placeholder="User A"
-              />
-              <input
-                value={userB}
-                onChange={(e) => setUserB(e.target.value)}
-                placeholder="User B"
-              />
-              <button onClick={loadShortestPath} disabled={loading}>
-                Find
-              </button>
-            </div>
-          </div>
-
-          {message && <div className="message">{message}</div>}
-        </div>
-      </div>
-    </div>
-  );
-}
